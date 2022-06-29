@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Header from "./components/Header";
 import Menu from "./components/Menu";
-// import Content from "./components/Content";
+import Content from "./components/Content";
 
 const StyledMainWrapper = styled.div`
   position: relative;
