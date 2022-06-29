@@ -1,5 +1,5 @@
 import React from 'react'
-import projects from './project'
+import projects from './projects'
 import styled from 'styled-components'
 import MenuItems from './MenuItems'
 
@@ -16,7 +16,7 @@ const StyledProjectsContainer = styled.nav`
     align-items: center;
     height: 100vh;
   }
-  .project__image--outer {
+  .project__image-outer {
     pointer-events: none;
     position: absolute;
     width: 28vw;
@@ -27,7 +27,7 @@ const StyledProjectsContainer = styled.nav`
     top: 20vh;
     z-index: 1;
     border-radius: 300px;
-    .project__image--inner {
+    .project__image-inner {
       position: absolute;
       opacity: 0.8;
       top: -10%;
@@ -39,7 +39,7 @@ const StyledProjectsContainer = styled.nav`
   }
 `;
 
-const StyledBackground = styled.aside`
+const StyledBackround = styled.aside`
   position: fixed;
   top: 0;
   left: 0;
@@ -66,10 +66,10 @@ const Menu = ({ isMenuOpen }) => {
       ))}
     </div>
 
-    <div className='project__image--outer'>
-      <div className='project__image--inner'></div>
+    <div className='project__image-outer'>
+      <div className='project__image-inner'></div>
     </div>
-    <StyledBackground />
+    <StyledBackround />
     </StyledProjectsContainer>
     )}
     </>
