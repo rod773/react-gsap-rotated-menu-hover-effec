@@ -14,7 +14,7 @@ function App() {
   return (
     <StyledMainWrapper>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      {/* <Content /> */}
+      <Content />
       <Menu isMenuOpen={isMenuOpen} />
     </StyledMainWrapper>
   );
