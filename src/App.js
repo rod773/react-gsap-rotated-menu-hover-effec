@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import Header from "./components/Header";
-// import Menu from "./components/Menu";
+import Menu from "./components/Menu";
 // import Content from "./components/Content";
 
 const StyledMainWrapper = styled.div`
@@ -14,8 +14,8 @@ function App() {
   return (
     <StyledMainWrapper>
       <Header isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-      {/* <Content />
-      <Menu isMenuOpen={isMenuOpen} /> */}
+      {/* <Content /> */}
+      <Menu isMenuOpen={isMenuOpen} />
     </StyledMainWrapper>
   );
 }
