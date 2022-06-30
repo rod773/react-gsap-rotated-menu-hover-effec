@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import styled from "styled-components";
 import { gsap } from "gsap";
 
@@ -52,6 +52,8 @@ const MenuItems = ({
   backgroundRef,
   projectsRef,
 }) => {
+  const wordRef = useRef();
+  const wordRefClone = useRef();
   useLayoutEffect(() => {
     document.body.style.overflow = "hidden";
 
@@ -110,7 +112,32 @@ const MenuItems = ({
         },
         0
       )
-      .to(getSiblings, { autoAlpha: 0.2 }, 0);
+      .to(getSiblings, { autoAlpha: 0.2 }, 0)
+      .to(
+        wordRef.current.children,
+        {
+          y: "100%",
+          rotationX: -90,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2",
+          stagger: 0.025,
+        },
+        0
+      )
+      .to(
+        wordRefClone.current.children,
+        {
+          startAt: { y: "-100%", rotationX: 90, opacity: 0 },
+          y: "0%",
+          rotationX: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2",
+          stagger: 0.025,
+        },
+        0
+      );
   };
 
   const handleMouseLeave = (event) => {
@@ -125,7 +152,32 @@ const MenuItems = ({
       .to(outerRef.current, {
         autoAlpha: 0,
       })
-      .to(getAllProjectsItems, { autoAlpha: 1 }, 0);
+      .to(getAllProjectsItems, { autoAlpha: 1 }, 0)
+      .to(
+        wordRef.current.children,
+        {
+          startAt: { y: "100%", rotationX: -90, opacity: 0 },
+          y: "0%",
+          rotationX: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: "power2",
+          stagger: 0.025,
+        },
+        0
+      )
+      .to(
+        wordRefClone.current.children,
+        {
+          y: "-100%",
+          rotationX: 90,
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2",
+          stagger: 0.025,
+        },
+        0
+      );
   };
 
   const handleMouseMove = ({ clientX, clientY }) => {
@@ -151,7 +203,40 @@ const MenuItems = ({
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
     >
-      <span className="project__item-text">{name}</span>
+      <span className="project__item-text">
+        <span className="word" ref={wordRef}>
+          {name.split("").map((item, index) => {
+            return (
+              <span
+                key={index}
+                className="char"
+                style={{
+                  display: "inline-block",
+                  willChange: "transform",
+                }}
+              >
+                {item}
+              </span>
+            );
+          })}
+        </span>
+        <span className="word clone" ref={wordRefClone}>
+          {name.split("").map((item, index) => {
+            return (
+              <span
+                key={index}
+                className="char"
+                style={{
+                  display: "inline-block",
+                  willChange: "transform",
+                }}
+              >
+                {item}
+              </span>
+            );
+          })}
+        </span>
+      </span>
     </StyledProjectItem>
   );
 };
