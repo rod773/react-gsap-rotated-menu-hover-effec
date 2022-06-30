@@ -112,6 +112,20 @@ const MenuItems = ({
       .to(getSiblings, { autoAlpha: 0.2 }, 0);
   };
 
+  const handleMouseLeave = (event) => {
+    const getAllProjectsItems = gsap.utils.toArray(".project__item");
+    const tlLeave = gsap.timeline({
+      defaults: {
+        duration: 1,
+        ease: "none",
+    }
+    });
+    tlLeave.to(outerRef.current, {
+      autoAlpha: 0,
+    })
+    .to(getAllProjectsItems, { autoAlpha: 1 }, 0);
+  }
+
   return (
     <StyledProjectItem
       href=""
@@ -119,6 +133,7 @@ const MenuItems = ({
       data-color={bgcolor}
       data-image={src}
       onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <span className="project__item-text">{name}</span>
     </StyledProjectItem>
