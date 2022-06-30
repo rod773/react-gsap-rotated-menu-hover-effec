@@ -54,12 +54,13 @@ const Menu = ({ isMenuOpen }) => {
   const innerRef = useRef();
   const outerRef = useRef();
   const backgroundRef = useRef();
+  const projectsRef = useRef();
 
   return (
     <>
     {isMenuOpen && (
     <StyledProjectsContainer>
-    <div className='project__wrapper'>
+    <div className='project__wrapper' ref={projectsRef}>
       {projects.map((project) => (
         <MenuItems
         key={project.id}
@@ -69,6 +70,7 @@ const Menu = ({ isMenuOpen }) => {
         outerRef={outerRef}
         innerRef={innerRef}
         backgroundRef={backgroundRef}
+        projectsRef={projectsRef}
         />
       ))}
     </div>
