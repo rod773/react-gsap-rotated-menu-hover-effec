@@ -15,7 +15,7 @@ const StyledProject = styled.section`
     z-index: -4
     .project__title {
       grid-area: project-title;
-      text-align: reight;
+      text-align: right;
       padding: 0 2vw 2vw 0;
       font-family: "italiana", serif;
       font-weight: 400;
@@ -52,6 +52,10 @@ const StyledProject = styled.section`
 const Project = () => {
   return (
     <StyledProject>
+      <h2 className="project__title">
+        <span className="project__title--main">Hansika</span>
+        <span className="project__title--sub">Brand Identity</span>
+      </h2>
       <h2 className="project__title">
         <span className="project__title--main">Hansika</span>
         <span className="project__title--sub">Brand Identity</span>

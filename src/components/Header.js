@@ -4,35 +4,35 @@ import styled from 'styled-components';
 import { gsap } from 'gsap';
 
 const StyledHeader = styled.header`
-position: absolute;
-width: 100%;
-//z-index: 10;
-padding: 0 4vw;
-.header__outer {
-  max-width: 1417px;
-  margin: 0 auto;
-  .header__inner {
-    display: flex;
-    height: 120px;
-    align-items: center;
-    justify-content: space-between;
-    svg {
-      width: 30px;
-      fill: #fff;
+  position: absolute;
+  width: 100%;
+  padding: 0 4vw;
+  .header__outer {
+    max-width: 1417px;
+    margin: 0 auto;
+    .header__inner {
+      display: flex;
+      height: 120px;
+      align-items: center;
+      justify-content: space-between;
+      svg {
+        width: 30px;
+        fill: #fff;
+      }
     }
   }
-}
-.header__hamburger {
-  cursor: pointer;
-  display: block;
-  span {
-    height: 3px;
-    width: 30px;
-    margin: 6px;
+  .header__hamburger {
+    z-index: 10;
+    cursor: pointer;
     display: block;
-    background: #fff;
+    span {
+      height: 3px;
+      width: 30px;
+      margin: 6px;
+      display: block;
+      background: #fff;
+    }
   }
-}
 `;
 
 
